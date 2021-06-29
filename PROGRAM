@@ -63,3 +63,35 @@ def  fibonacci(n):
 
 for i in range(32):
     print(i,fibonacci(i))
+
+
+
+
+
+#args
+def test_start(*args):
+    print(args)
+    for x in args:
+        print(x)
+test_start(0,1,2,3,4,5) 
+ 
+ 
+ 
+ 
+ 
+ 
+ #DICTIONARY
+ 
+ 
+ fruit={"orange":"sweet orange citrus fruit",
+        "apple":"good for making cider",
+         "lemon":"sour yellow citrus fruti",
+      "grape":"samll fruit",
+      "lime":"small citurs sour "}
+print(fruit)
+print(fruit['lemon'])
+#assign new values to dictionary
+fruit["banana"]="healthy"
+print(fruit)
+#overwriting
+fruit["apple"]="verygood "
