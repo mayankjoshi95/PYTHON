@@ -95,3 +95,17 @@ fruit["banana"]="healthy"
 print(fruit)
 #overwriting
 fruit["apple"]="verygood "
+#delete 
+del fruit["banana"]
+#clear
+fruit.clear()
+
+
+
+#get method
+while True:
+    dict_key=input("Please enter a fruit")
+    if dict_key=="quit":
+        break
+    description=fruit.get(dict_key)
+    print(description)
