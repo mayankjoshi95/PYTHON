@@ -31,6 +31,18 @@ banner_text("*")
 
 
 
+#palindrome
+
+
+
+
+def palindrome(string:str)->bool:
+    return string[::-1].casefold()==string.casefold()
+word= input()
+stri=palindrome(word)
+print(stri)
+
+
 
 
 #fibonacci Numbers
