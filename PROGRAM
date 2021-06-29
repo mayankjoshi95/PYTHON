@@ -109,3 +109,16 @@ while True:
         break
     description=fruit.get(dict_key)
     print(description)
+    
+    
+    
+    
+    #sorting using keys and values
+    #insted of keys place values()
+   ordered_keys=fruits.keys()
+ordered_keys=sorted(list(fruits.keys()))
+print(ordered_keys)
+for f in ordered_keys:
+    print(f+"="+fruits[f])
+
+    
