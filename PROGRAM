@@ -115,10 +115,86 @@ while True:
     
     #sorting using keys and values
     #insted of keys place values()
-   ordered_keys=fruits.keys()
+   
+  ordered_keys=fruits.keys()
 ordered_keys=sorted(list(fruits.keys()))
 print(ordered_keys)
 for f in ordered_keys:
     print(f+"="+fruits[f])
+    
+    
+    
+    
+    #tuple and dictionary
+    
+    f_tuple=tuple(fruits.items())
+    for i in f_tuple:
+    item,description=i
+    print(item+"is"+description)
 
     
+#join
+
+
+mylist=["a","b","c","d"]
+print(mylist)
+newString=""
+
+newString+=",".join(mylist)
+print(newString)  
+
+
+
+
+
+
+
+#update copy DICTIONARY
+
+
+fruits={"orange":"sweet orange citrus fruit",
+        "apple":"good for making cider",
+         "lemon":"sour yellow citrus fruti",
+         "grape":"samll fruit",
+         "lime":"small citurs sour ",
+         "apple":"healthy"}
+veg={"cabage":"every childs favorite",
+    "sprouts":"mm lovely",
+    "spinach":"can i have some more fruits"}
+
+nicenasty=fruits.copy()
+nicenasty.update(veg)
+print(nicenasty)
+
+
+
+
+#sets,union,intersection
+
+
+
+
+
+
+farmanimal={"sheep","cow","deer"}
+print(farmanimal)
+for animal in farmanimal:
+    print(animal)
+wild=set(["lion","tiger","panther"])
+print(wild)
+for animal in wild:
+    print(animal)
+empty_set=set()
+empty_set.add("Sdds")
+print(empty_set)
+
+even=set(range(0,40,2))
+print(even)
+print(len(even))
+square_tuple=(4,16,3,2,4)
+squares=set(square_tuple)
+print(squares)
+print(len(squares))
+print(even.union(squares))
+print(len(even.union(squares)))
+print(even.intersection(squares))
