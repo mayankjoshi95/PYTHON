@@ -200,3 +200,14 @@ print(len(even.union(squares)))
 print(even.intersection(squares))
 print(even-squares)
 print(even.difference(squares))
+
+
+
+
+#file 
+
+
+jabber=open("/Users/home/.jupyter/sample.txt",'r')
+for line in jabber:
+     print(line,end='')
+jabber.close()    
