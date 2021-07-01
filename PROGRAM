@@ -211,3 +211,41 @@ jabber=open("/Users/home/.jupyter/sample.txt",'r')
 for line in jabber:
      print(line,end='')
 jabber.close()    
+
+
+
+
+#using pickle
+
+
+
+
+
+inelda="more mayhem","ineehlda may","2011",((1,"puling the rug"),(2,"psycho"),(3,"mayhem"),(4,"kentish town waltz"))
+even=list(range(0,10,2))
+odd=list(range(1,10,2))
+with open("inelda.pickle","wb") as pickle_file:
+    pickle.dump(inelda,pickle_file)
+    pickle.dump(even,pickle_file)
+    pickle.dump(odd,pickle_file)
+    pickle.dump(29998302,pickle_file)
+with open("inelda.pickle","rb")as inelda_pickled:
+    inelda2=pickle.load(inelda_pickled)
+    even_list=pickle.load(inelda_pickled)
+    odd_list=pickle.load(inelda_pickled)
+    x=pickle.load(inelda_pickled)
+    
+print(inelda2)
+album,artist,year,track_list=inelda2
+print(album)
+print(artist)
+print(year)
+print(track_list)
+for track in track_list:
+    track_number,track_title=track
+    print(track_number,track_title)
+for i in even_list:
+    print(i)
+for i in odd_list:
+    print(i)
+print(x)    
