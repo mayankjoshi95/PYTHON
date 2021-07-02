@@ -294,3 +294,23 @@ import turtle
 turtle.forward(150)
 turtle.right(250)
 turtle.forward(150)
+
+
+
+
+
+#why import * is a problem
+
+
+
+done="well done you have finished the drawing"
+from turtle import *
+forward(150)
+right(250)
+forward(150)
+done()
+print(done)
+
+<function mainloop at 0x000001F851FC4160>#output
+
+
