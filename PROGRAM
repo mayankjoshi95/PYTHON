@@ -356,7 +356,7 @@ print("day",time_here[2],time_here.tm_mday)
 #program for storing my reaction time
 
 import time
-from time import perf_counter as my_timer
+from time import perf_counter as my_timer #instead of perf_counter ;time can be used ,or process time can be used 
 import random
 input("please enter to start")
 wait_time=random.randint(1,6)
