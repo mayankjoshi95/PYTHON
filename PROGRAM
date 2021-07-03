@@ -398,3 +398,18 @@ for x in sorted(pytz.country_names):
             print(zone,local_time)
     else:
           print("no time zones")
+          
+          
+         
+#FUNCTION IN PYTHON
+def text(*args):
+    text=""
+    for arg in args:
+        text+=str(arg)
+    left_margin=(80-len(text))//2
+    print(" "*left_margin,text)
+text("my name is mayank")   
+text("my name is mfgdggsgseayank")
+text(12)
+text("my name is mayanksgdsgsfawfeagesgsgs")
+text("sds",2,322,33,"sds")
