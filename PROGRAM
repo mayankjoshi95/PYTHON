@@ -385,4 +385,4 @@ print("UTCis {}\n\t".format(datetime.datetime.utcnow()))
 
 
 for x in sorted(pytz.country_names):
-    print("{}:{}:{}".format(x,pytz.country_names[x],pytz.country_timezones[x]))
+    print("{}:{}:{}".format(x,pytz.country_names[x],pytz.country_timezones.get(x)))
