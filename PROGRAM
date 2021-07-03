@@ -452,3 +452,7 @@ kenwood.price=12.75
 print(kenwood.price)
 hamilton=Kettle("hamilton",14.55)
 print("models:{0.make}={0.price},{1.make}={1.price}".format(kenwood,hamilton))
+
+
+
+
