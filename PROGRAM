@@ -413,3 +413,24 @@ text("my name is mfgdggsgseayank")
 text(12)
 text("my name is mayanksgdsgsfawfeagesgsgs")
 text("sds",2,322,33,"sds")
+
+
+
+
+
+
+#use of file in print function
+
+def text(*args, sep='',end='\n', file=None, flush=False):
+    text=""
+    for arg in args:
+        text+=str(arg)+sep
+    left_margin=(80-len(text))//2
+    print(" "*left_margin,text,end=end,file=file,flush=flush)
+with open("centered",mode='w') as centered_file:
+    
+ text("my name is mayank",file=centered_file)   
+ text("my name is mfgdggsgseayank",file=centered_file)
+ text(12,file=centered_file)
+ text("my name is mayanksgdsgsfawfeagesgsgs",file=centered_file)
+ text("sds",2,322,33,"sds",sep="",file=centered_file)
