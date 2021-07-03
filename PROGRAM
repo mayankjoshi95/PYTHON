@@ -370,7 +370,7 @@ print("your reaction time was{}".format(end_time-start_time))
 
 
 
-#date time
+#date time  pytz
 
 
 
@@ -381,3 +381,8 @@ tz_to_display=pytz.timezone(country)
 local_time=datetime.datetime.now(tz=tz_to_display)
 print("the time in{}is {}\n\t".format(country,local_time))
 print("UTCis {}\n\t".format(datetime.datetime.utcnow()))
+
+
+
+for x in sorted(pytz.country_names):
+    print("{}:{}:{}".format(x,pytz.country_names[x],pytz.country_timezones[x]))
