@@ -434,3 +434,21 @@ with open("centered",mode='w') as centered_file:
  text(12,file=centered_file)
  text("my name is mayanksgdsgsfawfeagesgsgs",file=centered_file)
  text("sds",2,322,33,"sds",sep="",file=centered_file)
+
+
+
+#CLASS 
+
+
+class Kettle(object):
+    def __init__(self , make,price):
+        self.make=make
+        self.price=price
+        self.on=False
+kenwood=Kettle("kenwood",8.99)
+print(kenwood.make)
+print(kenwood.price)
+kenwood.price=12.75
+print(kenwood.price)
+hamilton=Kettle("hamilton",14.55)
+print("models:{0.make}={0.price},{1.make}={1.price}".format(kenwood,hamilton))
