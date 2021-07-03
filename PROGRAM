@@ -367,3 +367,17 @@ end_time=my_timer()
 print("started at"+time.strftime("%X",time.localtime(start_time)))
 print("ended at"+time.strftime("%X",time.localtime(end_time)))
 print("your reaction time was{}".format(end_time-start_time))
+
+
+
+#date time
+
+
+
+import pytz
+import datetime
+country="Europe/Moscow"
+tz_to_display=pytz.timezone(country)
+local_time=datetime.datetime.now(tz=tz_to_display)
+print("the time in{}is {}\n\t".format(country,local_time))
+print("UTCis {}\n\t".format(datetime.datetime.utcnow()))
