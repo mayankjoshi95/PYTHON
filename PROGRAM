@@ -438,13 +438,40 @@ with open("centered",mode='w') as centered_file:
 
 
 #CLASS 
+object oriented programming aims to combine data and the processes that act on that data into object called encapsulation
+
+##encapsulation of data is the self lightng cigerrate 
+withut object oriented programming steps for smoking the sigarrete is 
+1.place cigarette in mouth 
+2.lisght the match 
+3.hold the match to cigrete
+4. inhale 
+
+encapsulation 
+1.place cigarrete in mouth 
+2. inhale 
+
+but there is no magic involved here steps still has to be programmed so they are built into the object so anything using the object doesn't have to be concerned about them .
+a=12
+b=4
+print(a+b)
+print(a.__add__(b))
+##here even if we send any thing it calls the same fucntion in .py file 
+##in python everything is an object even types are implemeted as classes .
+#when a function is  apart of class in pyhton it is called the method 
 
 
 class Kettle(object):
+power_source="electricity"
     def __init__(self , make,price):
         self.make=make
         self.price=price
-        self.on=False
+        self.on=False##thus class can be thought of as a template from which object is created
+    def switch_on(self):
+      self.on=True
+        #object created have the same name and the price 
+        ##object created from the same class will share the same characteristics .
+        ##so if i now create a kettle called kenwood then kettle will be an instance of the kettle class or kenwood is an obbject of type kettle a
 kenwood=Kettle("kenwood",8.99)
 print(kenwood.make)
 print(kenwood.price)
@@ -452,12 +479,43 @@ kenwood.price=12.75
 print(kenwood.price)
 hamilton=Kettle("hamilton",14.55)
 print("models:{0.make}={0.price},{1.make}={1.price}".format(kenwood,hamilton))
+##each instance i.e the hamilton or the kenwood has its value for name and price  
+##once the calss is defined then ewe can create as many instance of the class as we want .
+#once the instance is created we can then call the method and access their variable 
+#so kenwood.price retrieves the price from the instance called the kenwood .
+##when a variable is bund to an instance of a class it is called data attribute
+print(Kettle.power_source)
+print(kenwood.power_source)
+print(hamilton.power_source)
+electricity
+electricity
+electricity
+kenwood.power_source="atomic"
+electricity
+atomic
+electricity
+
+
+###Class:-template for creating the objects .all objects are created using the same classs will have the same chracteristics
+###object :-an instance of the class
+###instantiate :-create an instance of the class 
+###method: a function defined in a class
+###attribute :-a variable bound to an instance of the class
+##difference between this method and the function is the self parameter 
+##self :- it is the reference to the instance of the class and it is used to refer to instance variable 
 
 
 
-
+##instances ,constructors ,self and more 
 #CLASS bank balance
+##print(hamilton.on)
+##print(hamilton.switch_on())
+##print(hamilton.on)
+##Kettle.switch_on(kenwood)##calling the switch method in an alternative way so instead of using the instance of the kettle to call we used class itsel f
+##print(kenwood.on)
+##constructor :-special method executed when the instance of the class is created or constructed ##in python it is the init method on the line 3
 
+###along with thhe instance variable there can also be the class attribute 
 
 class Account:
     """simple account class with balance"""
@@ -484,6 +542,23 @@ if __name__=="__main__":
     tim.withdraw(50000)
    # tim.show_balance()
     
+##if name=='__main__'##name value is equal to the main if your are running int he same program the fucntion you are calling 
+def printhar(string):
+    return f"ye string de de {string}"
+def add(num1,num2):
+    return num1 +num2+5
+if __name__=='__main__':##if we import tut1 then only the function performed in the second is executed unless not 
+#here it says that if name === main then only execute so when name ==main only when it is its function
+    print(printhar("harry 1"))
+    o=add(4,5)
+    print(o)
+ye string de de harry 1
+14
+
+import tut1
+print(tut1.add(4,3))
+12
+
 
 
 
