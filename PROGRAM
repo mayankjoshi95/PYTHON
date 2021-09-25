@@ -619,3 +619,130 @@ if __name__=="__main__":
     steph.withdraw(400)
     steph.show_transations()
     
+##DOCSTRINGS 
+class Song :
+    """Class to represent a song 
+    Attributes :
+    title(str):title of the song 
+    artist(artist) :an artist object represneting the song creater
+    duration (int):duration of the song in second 
+    """
+    def __init__(self,title,artist,duration=0):
+     """Song init method 
+     Args:
+     title(str):initialises the 'title 'attribute 
+     artist(Artist):an artist object representig the song creator 
+     duration(optional (int)):;initial value for the duration of the attributes 
+     will default value to the zero if not specified """
+     self.title =title 
+     self.artist=artist
+     self.duration=duration     
+help(Song.__init__.__doc__)    
+Song.__init__.__doc__= """Song init method 
+     Args:
+     title(str):initialises the 'title 'attribute 
+     artist(Artist):an artist object representig the song creator 
+     duration(optional (int)):;initial value for the duration of the attributes 
+     will default value to the zero if not specified """
+help(Song)
+
+
+class Album :
+    """class to represent an album using a track list
+    attributes:
+    album _name(str):the name of the album
+    year(int): the year the album wa sreleased 
+    artist :(Artist responsible for the album )
+    if not specified the artist will default to an artist
+    tracks (list):a list of song of the album 
+    methods :
+    add song:add a new  song to the album track list 
+    """
+    def __init__(self,name,year,artist=None ):
+        self.name=name
+        self.year=year
+        if artist  is None :
+             self.artist=Artist("Various artist ")
+        else:
+            self.artist=artist 
+        self.tracks=[]    
+    def add_song(self,song,postion=None):
+        """Adds a song to the track list 
+        args:
+        song[song]:song to add
+        position (int):if specified song will be added to that postion in the track list 
+        -inserting it between other songs if necessary """
+        if position is None :
+           self.tracks.append(song)
+        else:
+           self.tracks.insert(position,song)
+        
+class Artist :
+    """basic class to store artist details 
+    attributes :
+    name(str): the name of the artist 
+    album/List(album):a list of the album by the artist 
+    the list includes only those album in the colletionit is not 
+    an exhaust list of artist published albums 
+    methods :add_albums :use to add a new album to the artist album list """
+    def __init__(self,name ):
+        self.name=name
+        self.albums=[]
+        
+    def add_album(self,album):
+        """add new album to the list..
+        args: 
+        album(Album ):album object to add to the list 
+        if the album is already present .it will not added again(althpugh it is yet implemented"""
+        self.albums.append(album)
+def load_data():
+    new_artist=None
+    new_album=None
+    artist_list=[]
+    with open("C:\\Users\\home\\Downloads\\albums.txt","r") as albums:
+       for line in albums:
+            #data row shouldconsist of (artist,album,year,song)
+         artist_field,album_field,year_field,song_field=tuple(line.strip('\n').split('\t'))
+         year_field=int(year_field)
+         print( artist_field,album_field,year_field,song_field) 
+         if new_artist is None :
+                new_artist=Artist(artist_field)
+         elif new_artist.name!=artist_field:
+            #we've just read the details for the new artist 
+            #store the current album in the current artist collection then create a new artist object 
+            new_artist.add_album(new_album)
+            artist_list.append(new_artist)
+            new_artist=Artist(artist_field)
+            new_album=None 
+         if new_album is None :
+                new_album=Album(album_field,year_field,new_artist)
+         elif new_album.name!=album_field:
+            #we've just read the details for the new album
+            #store the current album in the current artist collection then create a new artist object 
+            new_artist.add_album(new_album)
+            new_album=Album(album_field,year_field,new_artist)
+         #create a new song object anndadd it to the current album's collection   
+         new_song=Song(song_field,new_artist)
+         new_album.add_song(new_song)
+         if new_artist is not None :
+                 if new_album is not None :
+                        new_artist.add_album(new_album)
+                 artist_list.append(new_artist)
+    return artist_list             
+if __name__=='__main__':
+    
+    load_data()
+
+
+num1=(input())
+num2=(input())
+try:
+ print(" the number is ",int(num1)+int(num2))
+except Exception as e:
+    print(e)
+print("this is something")
+wee
+6
+invalid literal for int() with base 10: 'wee'
+this is something
+
