@@ -766,6 +766,10 @@ albums knows all about songs
 ##start by reqriting load data class to delegate most of the work to the artist class 
 ##now we will call the method that have not beem wrtitten 
 ##it may seem odd but in OOOP you don't have to worry about how it is done but that it needed to be done and something else is responsible for getting it done .
+##so i am for a bike repair i will not do it myself but look for the mechanic who encapsulate the skill or in case of building i wil look for the builder who encapsulte the 
+knowledge ##so a bulder ENCAPSULTES THE skill reuired to build somthing that doesnot fall 
+
+
 
 class Album :
     """class to represent an album using a track list
@@ -852,7 +856,7 @@ def load_data():
          if new_artist is None:
             new_artist=Artist(artist_field)
             artist_list.append(new_artist)
-         new_artist.add_song(album_field,year_field,song_field)
+         new_artist.add_song(album_field,year_field,song_field)##THIS IS WHERE ENCAPSULATION OCCUR I.E GIVING OPERATION TO  SOMEONE AND NOT DOING BY OURSELVES
     return artist_list    
 
 
@@ -861,3 +865,51 @@ if __name__=='__main__':
     artists=load_data()
     print("there are{} artists".format(len(artists)))
    
+   
+   
+   ###Getters and setters
+   
+   
+   class Employee:
+    def __init__(self,first,last):
+        self.first=first
+        self.last=last
+        self.email=first+'.'+last+'@email.com'
+    @property ##getter    
+    def fullname(self):
+        return'{} {}'.format(self.first,self.last)
+emp_1=Employee('John','Smith')
+emp_1.first='tim'
+print(emp_1.first)
+print(emp_1.email)
+print(emp_1.fullname)
+tim
+John.Smith@email.com
+tim Smith
+##here email does not gets changed even after name is changed 
+class Employee:
+    def __init__(self,first,last):
+        self.first=first
+        self.last=last
+       
+    @property    ##using this setter property decorator even though we are defining as the function but we aree using it as the attribute 
+    def email(self):
+        return'{}.{}@email.com'.format(self.first,self.last)  
+    @property
+    def fullname(self):
+        return'{} {}'.format(self.first,self.last)
+     @fullname.setter##setter
+    def fullname(self,name):##now this name value is the value we are trying to set 
+        first,last=name.split(' ')
+        self.first=first
+        self.last=last
+emp_1=Employee('John','Smith')
+emp_1.fullname='corey schafer'
+print(emp_1.first)
+print(emp_1.email)
+print(emp_1.fullname)
+corey
+corey.schafer@email.com
+corey schafer
+
+##here decorators can be used decorators allow us to define the method but we can access it like an attribute
