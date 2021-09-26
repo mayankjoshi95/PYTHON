@@ -1176,3 +1176,69 @@ Employee.no_of_leaves=236
 255
 455
 34
+
+
+
+##the method which start with the double score is called the dunderinit it is a specil method it is a special method cuz it is a constructor 
+and whenver the object is created it gets run .
+class Employee:
+    no_of_leaves=8
+    def __init__(self,aname,asalary,arole):
+        self.name=aname
+        self.salary=asalary
+        self.role=arole
+    def printdetails(self):
+        return f"Name is {self.name}.Salary is {self.salary} and the role is {self.role}"
+    @classmethod
+    def change_leaves(cls,newleaves):
+        cls.no_of_leaves=newleaves##here to change class directly
+        #cls is that class whose nstance is harry 
+    def __add__(self,other):##it is called dunder add
+     return self.salary+other.salary
+emp1=Employee("Harry",345,"Programmer")
+emp2=Employee("Rohan",85,"Cleaner")
+print(emp1+emp2)
+430
+
+
+##when more than one method of the same name defined in the same class then it is called method overloading
+##it is not possible in python 
+##in python, if a method is written such that it can perform more than one task it is called method overloading 
+
+class Myclass:
+    def sum(self,a):
+        print("1st method",a)
+    def sum(self):
+        print("2nd method")
+obj=Myclass()
+obj.sum()
+obj.sum(10)
+2nd method
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-79-b116f6566b49> in <module>
+      6 obj=Myclass()
+      7 obj.sum()
+----> 8 obj.sum(10)
+      9 
+     10 
+
+TypeError: sum() takes 1 positional argument but 2 were given
+##in python this occur in case of method overloading
+##so the method that is written at the last has the graeater prority 
+
+##so basically to do in only one method two or three task 
+
+class Myclass:
+    def sum(self,a=None,b=None,c=None):
+        if a!=None and b!=None and c!=None:
+            s=a+b+c
+        elif a!=None and b!=None:
+            s=a+b
+        else:
+            s='Provide at least two numbers'
+        return s       
+obj=Myclass()
+obj.sum(10,20)
+
+        
