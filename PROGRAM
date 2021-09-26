@@ -746,3 +746,118 @@ wee
 invalid literal for int() with base 10: 'wee'
 this is something
 
+
+##check file 
+def create_checkfile(artist_list):
+    """create a check file from the object data for the coparision with the original file"""
+    with open("checkfile.txt","w") as checkfile:
+        for new_artist in artist_list:
+            for new_album in new_artist.albums:
+                for new_song in new_album.tracks:
+                    print("{0.name}\t{1.name}\t{1.year}\t{2.title}".format(new_artist,new_album,new_song),file=checkfile)
+    
+
+##encasulting involvess encapsulating data and methods
+###it deals with question such as which object is best suited to deal with this task or where does responsibility to perform this function belong 
+##here load data does all the work of passing the data and working out when it finds the new album and a new song  .here the one who know most about the album is the artist and 
+albums knows all about songs 
+##so we really should encapsulte the method for dealing wth albums in the artist class and for dealing with songs in the album class 
+##so after this load data will delegate dealing with is to the appropriate class 
+##start by reqriting load data class to delegate most of the work to the artist class 
+##now we will call the method that have not beem wrtitten 
+##it may seem odd but in OOOP you don't have to worry about how it is done but that it needed to be done and something else is responsible for getting it done .
+
+class Album :
+    """class to represent an album using a track list
+    attributes:
+    album _name(str):the name of the album
+    year(int): the year the album wa sreleased 
+    artist :(Artist responsible for the album )
+    if not specified the artist will default to an artist
+    tracks (list):a list of song of the album 
+    methods :
+    add song:add a new  song to the album track list 
+    """
+    def __init__(self,name,year,artist=None ):
+        self.name=name
+        self.year=year
+        if artist  is None :
+             self.artist=Artist("Various artist ")
+        else:
+            self.artist=artist 
+        self.tracks=[]    
+    def add_song(self,song,position=None):
+        """Adds a song to the track list 
+        args:
+        song[song]:song to add
+        position (int):if specified song will be added to that postion in the track list 
+        -inserting it between other songs if necessary """
+        if position is None :
+           self.tracks.append(song)
+        else:
+           self.tracks.insert(position,song)
+        
+class Artist :
+    """basic class to store artist details 
+    attributes :
+    name(str): the name of the artist 
+    album/List(album):a list of the album by the artist 
+    the list includes only those album in the colletionit is not 
+    an exhaust list of artist published albums 
+    methods :add_albums :use to add a new album to the artist album list """
+    def __init__(self,name ):
+        self.name=name
+        self.albums=[]
+        
+    def add_album(self,album):
+        """add new album to the list..
+        args: 
+        album(Album ):album object to add to the list 
+        if the album is already present .it will not added again(althpugh it is yet implemented"""
+        self.albums.append(album)
+    def add_song(self,name,year,title):
+        """add a new song to the collection of the album 
+            this method will add the song fot he colleciton to the 
+            a new album is creatted if it doenot already exist 
+            args:
+            name(str):the name of the album
+            year(int):the year the album was prodcued 
+            title(str):title of the song """
+        album_found=find_object(name,self.albums)
+        if album_found is None:
+            print(name+"Not found")
+            album_found=Album(name,year,self)
+            self.add_album(album_found)
+        else :
+            print(" ffound album"+name)
+        album_found.add_song(title)    
+def find_object(field,object_list):
+    """check the object list to see if the object with a name attribute equal to the field exist, return it if so """
+    for item in object_list:
+        if item.name==field:
+            return item 
+    return None     
+        
+def load_data():
+    #new_artist=None
+    #new_album=None
+    artist_list=[]##while doing encapsulation these thong are not needed.
+    with open(r"C:\Users\home\Downloads\albums.txt","r") as albums:
+       for line in albums:
+            #data row shouldconsist of (artist,album,year,song)
+         artist_field,album_field,year_field,song_field=tuple(line.strip('\n').split('\t'))
+         year_field=int(year_field)
+         print("{}:{}:{}:{}".format( artist_field,album_field,year_field,song_field))
+         new_artist=find_object(artist_list,artist_field)
+         if new_artist is None:
+            new_artist=Artist(artist_field)
+            artist_list.append(new_artist)
+         new_artist.add_song(album_field,year_field,song_field)
+    return artist_list    
+
+
+if __name__=='__main__':
+    
+    artists=load_data()
+    print("there are{} artists".format(len(artists)))
+   
