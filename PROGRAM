@@ -618,7 +618,7 @@ if __name__=="__main__":
     steph.deposit(800)
     steph.withdraw(400)
     steph.show_transations()
-    
+###raw string  :help to not use \\ it help in case where we have to put \ at the end of the line .
 ##DOCSTRINGS 
 class Song :
     """Class to represent a song 
