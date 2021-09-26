@@ -1026,3 +1026,153 @@ that
 this.that@code with harry .com
 
 ##here decorators can be used decorators allow us to define the method but we can access it like an attribute
+
+##deleter
+class Employee:
+    def __init__(self,fname,lname):
+        self.fname=fname
+        self.lname=lname
+        #self.email=f"{fname}.{lname}@code woth harry.com"
+    def explain(self):
+        return f"This employee is {self.fname} {self.lname}"
+    @property
+    def email(self):
+        return f"{self.fname}.{self.lname}@code with harry .com"
+    @email.setter
+    def email(self,string):
+        names=string.split("@")[0]#it return the list
+        self.fname=names.split(".")[0]
+        self.lname=names.split(".")[1]
+    @email.deleter
+    def email(self):
+      self.fname=None
+      self.lname=None   
+        
+hindustani_supporter=Employee("Hindustani","Supporter")
+nikhil_raj_pandey=Employee("Nikhil","Raj")
+print(hindustani_supporter.explain())
+print(hindustani_supporter.email)
+hindustani_supporter.fname="US"
+print(hindustani_supporter.email)
+hindustani_supporter.email="this.that@codewithharry.com"
+##answer is same reason is during the time of object creation and the constructor gets run then and hen it gets intialize 
+#this problem is solved by the setter
+##now i want to give email as input and as i give email as input it change the first and the last name .
+##it is done by using setters
+##first take the attribute which you want to take as input 
+##then .setter 
+print(hindustani_supporter.fname)
+print(hindustani_supporter.lname)
+print(hindustani_supporter.email)
+del hindustani_supporter.email
+print(hindustani_supporter.email)
+This employee is Hindustani Supporter
+Hindustani.Supporter@code with harry .com
+US.Supporter@code with harry .com
+this
+that
+this.that@code with harry .com
+None.None@code with harry .com
+
+##generally we donot need them
+
+
+##inheritance 
+
+##base or super class and all our subclass will inherit the property of the super class and each subclass have their own property 
+#class can have more than one property in additon to the one they inherit 
+
+class Enemy:##this is the super class 
+
+    def __init__(self, name="Enemy", hit_points=0, lives=1):##constructor
+        self.name = name
+        self.hit_points = hit_points
+        self.lives = lives
+
+    def take_damage(self, damage):
+        remaining_points = self.hit_points - damage
+        if remaining_points >= 0:
+            self.hit_points = remaining_points
+            print("I took {} points damage and have {} left".format(damage, self.hit_points))
+        else:
+            self.lives -= 1
+
+    def __str__(self):
+        return "Name: {0.name}, Lives: {0.lives}, Hit points: {0.hit_points}".format(self)
+
+class Player(object):
+
+    def __init__(self, name):
+        self.name = name
+        self._lives = 3
+        self._level = 1
+        self._score = 0
+
+    def _get_lives(self):
+        return self._lives
+
+    def _set_lives(self, lives):
+        if lives >= 0:
+            self._lives = lives
+        else:
+            print("Lives cannot be negative")
+            self._lives = 0
+
+    def _get_level(self):
+        return self._level
+
+    def _set_level(self, level):
+        if level > 0:
+            delta = level - self._level
+            self._score += delta * 1000
+            self._level = level
+        else:
+            print("Level can't be less than 1")
+
+    lives = property(_get_lives, _set_lives)
+    level = property(_get_level, _set_level)
+
+    @property
+    def score(self):
+        return self._score
+
+    @score.setter
+    def score(self, score):
+        self._score = score
+
+    def __str__(self):
+        return "Name: {0.name}, Lives: {0.lives}, Level: {0.level}, Score {0.score}".format(self)
+
+random_monster=Enemy("basic enemy",12,1)
+print(random_monster)
+random_monster.take_damage(4)
+print(random_monster)
+random_monster.take_damage(9)
+print(random_monster)
+random_monster.take_damage(1)
+print(random_monster)
+
+##CLASS METHOD##through this even my instance can access the class variable 
+class Employee:
+    no_of_leaves=8
+    def __init__(self,aname,asalary,arole):
+        self.name=aname
+        self.salary=asalary
+        self.role=arole
+    def printdetails(self):
+        return f"Name is {self.name}.Salary is {self.salary} and the role is {self.role}"
+    @classmethod
+    def change_leaves(cls,leaves):
+        cls.no_of_leaves=leaves##here to change class directly
+        #cls is that class whose nstance is harry 
+        
+harry=Employee("Harry",255,"Instructor")  
+rohan=Employee("Rohan",455,"Student") 
+print(harry.salary)
+print(rohan.salary)
+harry.change_leaves(34)
+print(harry.no_of_leaves)
+Employee.no_of_leaves=236
+255
+455
+34
