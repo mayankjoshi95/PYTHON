@@ -912,4 +912,117 @@ corey
 corey.schafer@email.com
 corey schafer
 
+
+##abstract base classs
+
+
+from abc import ABCMeta ,abstractmethod
+class Shape(metaclass=ABCMeta):
+    @abstractmethod##it means everyone has to define it 
+    def printarea(self):##i.e every one have to print this method
+        return 0
+class Rectangle(Shape):
+    type="Rectangle"
+    sides=4
+    def __init__(self):
+        
+     self.length=6    
+     self.breadth=7
+   # def printarea(self):
+    #    return self.length*self.breadth##now if i want to have a class which calculates area for every function 
+rect1=Rectangle()    
+TypeError                                 Traceback (most recent call last)
+<ipython-input-38-d98b8e98ac82> in <module>
+     13    # def printarea(self):
+     14     #    return self.length*self.breadth##now if i want to have a class which calculates area for every function
+---> 15 rect1=Rectangle()
+
+TypeError: Can't instantiate abstract class Rectangle with abstract methods printarea
+    
+    ##as we are inheriting form the shape class so we have to define this function 
+    ##if we inherit any class from ABC Meta class that class say t child class to implement few method
+    ##tryobj=Shape()##we can't make object to shape
+    
+class Employee:
+    def __init__(self,fname,lname):
+        self.fname=fname
+        self.lname=lname
+        #self.email=f"{fname}.{lname}@code woth harry.com"
+    def explain(self):
+        return f"This employee is {self.fname} {self.lname}"
+    def email(self):
+        return f"{self.fname}.{self.lname}@code with harry .com"
+hindustani_supporter=Employee("Hindustani","Supporter")
+nikhil_raj_pandey=Employee("Nikhil","Raj")
+print(hindustani_supporter.explain())
+print(hindustani_supporter.email())
+hindustani_supporter.fname="US"
+print(hindustani_supporter.email())
+##answer is same reason is during the time of object creation and the constructor gets run then and hen it gets intialize 
+#this problem is solved by the setter
+This employee is Hindustani Supporter
+Hindustani.Supporter@code with harry .com
+US.Supporter@code with harry .com
+
+##decorator 
+class Employee:
+    def __init__(self,fname,lname):
+        self.fname=fname
+        self.lname=lname
+        #self.email=f"{fname}.{lname}@code woth harry.com"
+    def explain(self):
+        return f"This employee is {self.fname} {self.lname}"
+    @property
+    def email(self):
+        return f"{self.fname}.{self.lname}@code with harry .com"
+hindustani_supporter=Employee("Hindustani","Supporter")
+nikhil_raj_pandey=Employee("Nikhil","Raj")
+print(hindustani_supporter.explain())
+print(hindustani_supporter.email)
+hindustani_supporter.fname="US"
+print(hindustani_supporter.email)
+##answer is same reason is during the time of object creation and the constructor gets run then and hen it gets intialize 
+#this problem is solved by the setter
+
+
+class Employee:
+    def __init__(self,fname,lname):
+        self.fname=fname
+        self.lname=lname
+        #self.email=f"{fname}.{lname}@code woth harry.com"
+    def explain(self):
+        return f"This employee is {self.fname} {self.lname}"
+    @property
+    def email(self):
+        return f"{self.fname}.{self.lname}@code with harry .com"
+    @email.setter
+    def email(self,string):
+        names=string.split("@")[0]#it return the list
+        self.fname=names.split(".")[0]
+        self.lname=names.split(".")[1]
+        
+        
+hindustani_supporter=Employee("Hindustani","Supporter")
+nikhil_raj_pandey=Employee("Nikhil","Raj")
+print(hindustani_supporter.explain())
+print(hindustani_supporter.email)
+hindustani_supporter.fname="US"
+print(hindustani_supporter.email)
+hindustani_supporter.email="this.that@codewithharry.com"
+##answer is same reason is during the time of object creation and the constructor gets run then and hen it gets intialize 
+#this problem is solved by the setter
+##now i want to give email as input and as i give email as input it change the first and the last name .
+##it is done by using setters
+##first take the attribute which you want to take as input 
+##then .setter 
+print(hindustani_supporter.fname)
+print(hindustani_supporter.lname)
+print(hindustani_supporter.email)
+This employee is Hindustani Supporter
+Hindustani.Supporter@code with harry .com
+US.Supporter@code with harry .com
+this
+that
+this.that@code with harry .com
+
 ##here decorators can be used decorators allow us to define the method but we can access it like an attribute
