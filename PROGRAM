@@ -1695,7 +1695,25 @@ print(a)
 
 
  
- 
+ ##FUNCTION RETURN ANOTHER FUNCTION 
+ def disp():#2since show is not called yet thus it return show and r_sh =show 
+    def show():#4.it returns the value "show function" and we get "show ficntion gets printed "
+        return "Show Function"
+    print("Disp Fucntion")##this print statement is for the outer fucntion
+    return show##the outer funciton  return this function
+r_sh= disp()##1.it calls to the disp function
+print(r_sh())#3.now it is read as show() i.e the show function gets called 
+Disp Fucntion
+Show Function
+
+
+def disp(sh):##2, after calling it PRINT the "Disp Funciton"returns the show now r_sh=show 
+    print("Disp Function")
+    return sh
+def show():
+    return"Show Function"
+r_sh=disp(show)###1. here disp function gets called ### here in te parameter it give the fucntion
+print(r_sh())##3.now the show() is called then it print the "Show Function"
  
  
  
