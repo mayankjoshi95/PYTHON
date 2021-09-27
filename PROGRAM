@@ -1376,3 +1376,27 @@ print(b.classvar1)##1.now from here we will go to class B it will see is there a
 
 
 
+##using the super method
+class A:
+    classvar1="I am a classs variable in class A"
+    def __init__(self):
+        self.var1="I am inside Class A's constructor"
+        self.classvar1="Instance var in class A"##isntance variable
+        self.special="itis special "
+class B(A):
+    #classvar1="I am a classs variable in class B"
+    def __init__(self):
+        super().__init__()##now even if the calss A is overridden still we can call it 
+        ##what super does is if we want the acess the attribute or the method then we can use the super 
+        
+        self.var1="I am inside Class B's constructor"##here if we run both the statement one by one by commenting out
+        #we will see that Class has been overidden but if still i want to run the class A    
+        self.classvar1="Instance var in class B"##isntance variable\
+        print(super().classvar1)
+        
+        
+a=A()
+b=B()
+print(b.special)
+I am a classs variable in class A
+itis special      
