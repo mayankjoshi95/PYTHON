@@ -1624,3 +1624,10 @@ def pi_series():
         yield approximation
         approximation-=(4/next(odds))
         yield approximation
+
+approx_pi=pi_series()
+for x in range(100):
+    print(next(approx_pi))
+    
+    ##here as we incerese the range the value of pi will coverge to its original value 
+    
