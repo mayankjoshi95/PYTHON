@@ -1241,4 +1241,138 @@ class Myclass:
 obj=Myclass()
 obj.sum(10,20)
 
-        
+
+
+
+##Trol has init in it here we have the error as we will first do the troll init slass an then enemy class
+
+
+
+
+
+
+class Enemy:##this is the super class 
+
+    def __init__(self, name="Enemy", hit_points=0, lives=1):##constructor
+        self.name = name
+        self.hit_points = hit_points
+        self.lives = lives
+
+    def take_damage(self, damage):
+        remaining_points = self.hit_points - damage
+        if remaining_points >= 0:
+            self.hit_points = remaining_points
+            print("I took {} points damage and have {} left".format(damage, self.hit_points))
+        else:
+            self.lives -= 1
+
+    def __str__(self):
+        return "Name: {0.name}, Lives: {0.lives}, Hit points: {0.hit_points}".format(self)
+class Troll(Enemy):
+    def __init__(self,name):
+        pass
+    
+
+
+
+class Player(object):
+
+    def __init__(self, name):
+        self.name = name
+        self._lives = 3
+        self._level = 1
+        self._score = 0
+
+    def _get_lives(self):
+        return self._lives
+
+    def _set_lives(self, lives):
+        if lives >= 0:
+            self._lives = lives
+        else:
+            print("Lives cannot be negative")
+            self._lives = 0
+
+    def _get_level(self):
+        return self._level
+
+    def _set_level(self, level):
+        if level > 0:
+            delta = level - self._level
+            self._score += delta * 1000
+            self._level = level
+        else:
+            print("Level can't be less than 1")
+
+    lives = property(_get_lives, _set_lives)
+    level = property(_get_level, _set_level)
+
+    @property
+    def score(self):
+        return self._score
+
+    @score.setter
+    def score(self, score):
+        self._score = score
+
+    def __str__(self):
+        return "Name: {0.name}, Lives: {0.lives}, Level: {0.level}, Score {0.score}".format(self)
+
+random_monster=Enemy("basic enemy",12,1)
+print(random_monster)
+random_monster.take_damage(4)
+print(random_monster)
+random_monster.take_damage(9)
+print(random_monster)
+random_monster.take_damage(1)
+print(random_monster)
+##several classes from the same module
+ugly_troll = Troll("Pug")
+print("Ugly troll - {}".format(ugly_troll))
+
+another_troll = Troll("Ug", 18, 1)##use init of the enemy
+#print("Another troll - {}".format(another_troll))
+
+brother = Troll("Urg", 23)
+print(brother)    
+print("Another troll - {}".format(another_troll))
+AttributeError                            Traceback (most recent call last)
+<ipython-input-81-a191499feba9> in <module>
+     76 ##several classes from the same module
+     77 ugly_troll = Troll("Pug")
+---> 78 print("Ugly troll - {}".format(ugly_troll))
+     79 
+     80 another_troll = Troll("Ug", 18, 1)##use init of the enemy
+
+<ipython-input-81-a191499feba9> in __str__(self)
+     15 
+     16     def __str__(self):
+---> 17         return "Name: {0.name}, Lives: {0.lives}, Hit points: {0.hit_points}".format(self)
+     18 class Troll(Enemy):
+     19     def __init__(self,name):
+
+AttributeError: 'Troll' object has no attribute 'name'
+
+
+
+##so we can write our enemy inside our troll to avoid the errror
+
+
+
+
+##Overidding 
+class A:
+    classvar1="I am a classs variable in class A"
+    def __init__(self):
+        self.var1="I am inside Class A's constructor"
+   #     self.classvar1="Instance var in class A"##isntance variable
+class B(A):
+    #classvar1="I am a classs variable in class B"##calss variable ##2.even if it is classvar1 still it will print self.classvar1 
+    pass      3.after comenting self.classvar1 and classvar1 then it we have to go to classA classvar1 
+a=A()
+b=B()
+print(b.classvar1)##1.now from here we will go to class B it will see is there any instacne variable then will see is there any class variabLE
+#of the class from which it has inherited.##this is overriddding 
+
+
+
