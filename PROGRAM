@@ -1630,4 +1630,75 @@ for x in range(100):
     print(next(approx_pi))
     
     ##here as we incerese the range the value of pi will coverge to its original value 
-    
+   
+   
+   
+   ##COMPREHENSION 
+#ls=[]
+#for i in range(100):
+#   if i%3==0:
+ #       ls.append(i)
+#print(ls)        
+#ls=[i for i in range(100) if i%3==0]##list comprehension
+#print(ls)
+#dict1={i:f"item{i}"for i in range(1000) if i%100==0}##dictionary comprehension
+#dict2= {value:key for key,value in dict1.items()}##dictionary comprehension is useful to invert the dictionary
+#print(dict1,"\n",dict2)
+#dresses={dress for dress in ["dress1","dress2","dress1","dress2","dress1","dress2","dress1","dress2"]}##set comprehenssion 
+#print(dresses)
+
+#generator comprehensions
+#evens=(i for i in range (100) if i%2==0)
+#print(type(evens))##generator are special type of iterator which can be used only once 
+#print(evens.__next__())
+
+#print(evens.__next__())
+#print(evens.__next__())
+ 
+ 
+ ##lambda 
+ lambda functions or anonymous function
+ 
+ #def add(a,b):
+ #   return a+b
+##next both are same 
+#minus= lambda x,y:x-y
+#def minus(x,y):
+ #return x-y
+
+#print(minus(9,4))
+
+def a_first(a):
+    return a[1]
+a=[[1,14],[0,6],[8,23]]
+#a.sort(key=a_first)
+a.sort(key=lambda x:x[1])
+print(a)
+##this a_first function return 1 index 
+
+#def add(a,b):
+ #   return a+b
+##next both are same 
+#minus= lambda x,y:x-y
+#def minus(x,y):
+ #return x-y
+
+#print(minus(9,4))
+
+def a_first(a):
+    return a[1]
+a=[[1,14],[0,6],[8,23]]
+#a.sort(key=a_first)
+a.sort(key=lambda x:x[1])
+print(a)
+##this a_first function return 2nd index 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
