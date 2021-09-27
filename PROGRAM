@@ -1526,3 +1526,37 @@ print(emp.total_salary())
 #but in case of aggregation both the object are independent of each other 
 ##here in aggrregation association is undirectional we can pass salary to the employee class but not the other way round
 
+##generators helps to preserve memory and actually lot of memory  
+
+
+
+
+
+##GENERATOR 
+
+##ITERABLE:-__iter__() or __getitem__()##iterable is that python object in which either of these function is defined .## if i want to travesre python object 
+
+##like list or string if it is iterable then we use __iter__() it generate iterator and if we put __next__() on the iterator then it will give me next item again and again
+#method on the object then we get the iterator 
+Iterator:-__next()__
+Iteration
+
+##now generator are those kind of iterator which we can traverse only one time 
+for i in range(78):
+  print(i)
+##so once i have iterated it the next time i will not be able to iterate it THUS RANGE IS OUR GENERATOR THUS I CAN ITERATE IT ONLY ONE TIME .
+##in case of return 
+def gen(n):
+    for i in range(n):
+        return i
+g=gen(353454355)    
+0
+##in case of yield 
+def gen(n):
+    for i in range(n):
+        yield i##instead of return it is ield thus it is not the fucntion it isthe generator thus it give back the generator object 
+        ##thus i want to save the meemory so i have made something that i capable of generating numbers from 0 to 353454355
+g=gen(353454355)        
+<generator object gen at 0x000001E43C600190>
+
+
