@@ -1443,3 +1443,26 @@ if __name__ == '__main__':
     #duck typing .it is i=not interested in the class but that it has the 3 function
     
  
+##polymorphism 
+ a=3
+b="tim"
+c=1,2,3
+print(a)
+print(b)
+print(c)
+##whats happpeing here is each object will behave in a similar way whn we try to print it
+## a is int  and we substract two ints to work out their difference .b is a string and you can't subtrafct two string thus 
+##a and b are two different type of object but both are printable so in that respect they behave like different type of object .
+##the object that is printable 
+##that ability of object to have different forms is called Polymorphism
+##in this example the polymorphic behaviour of the objects is imlemented using inheritence .all python objects inherit from a base calss
+##called object which defines a __str__ method
+
+
+###SO POLYMORPHISM ALLOW THE PRINT FUNCTION TO ACCEPT ARGUMENT OF ANY TYPE AND ITS ABLE TO PRINT THEM OUT 
+#int.__str__()
+#float.__str__()
+#list.__str__()
+#tuple.__str__()
+##they all behave as the printable object
+
