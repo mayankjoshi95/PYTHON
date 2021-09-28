@@ -1716,7 +1716,29 @@ r_sh=disp(show)###1. here disp function gets called ### here in te parameter it 
 print(r_sh())##3.now the show() is called then it print the "Show Function"
  
  
- 
- 
- 
+##ASSERTION
+ ##assertion are the way to tell your program to test the certain condition and trigger an error if the condition is false 
+ ##assert <condition>,<optional_message>
+def get_age(age):
+   assert age>0,"Age can't be negative !"
+   print("Ok your age is ",age)
+
+get_age(20) 
+get_age(-1)##after typing this we writw that your age is -1 which is weird thus we need assertion 
+Ok your age is  20
+---------------------------------------------------------------------------
+AssertionError                            Traceback (most recent call last)
+<ipython-input-55-c4a82dca845d> in <module>
+      7 
+      8 get_age(20)
+----> 9 get_age(-1)##after typing this we writw that your age is -1 which is weird thus we need assertion
+
+<ipython-input-55-c4a82dca845d> in get_age(age)
+      3 ##assert <condition>,<optional_message>
+      4 def get_age(age):
+----> 5   assert age>0,"Age can't be negative !"
+      6   print("Ok your age is ",age)
+      7 
+
+AssertionError: Age can't be negative !
  
