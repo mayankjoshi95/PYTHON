@@ -1554,7 +1554,7 @@ g=gen(353454355)
 ##in case of yield 
 def gen(n):
     for i in range(n):
-        yield i##instead of return it is ield thus it is not the fucntion it isthe generator thus it give back the generator object 
+        yield i##instead of return it is yield thus it is not the fucntion it isthe generator thus it give back the generator object 
         ##thus i want to save the meemory so i have made something that i capable of generating numbers from 0 to 353454355
 g=gen(353454355)        
 <generator object gen at 0x000001E43C600190>
@@ -1624,7 +1624,7 @@ def pi_series():
         yield approximation
         approximation-=(4/next(odds))
         yield approximation
-
+##it will continuefrom where it left off after yielding a value
 approx_pi=pi_series()
 for x in range(100):
     print(next(approx_pi))
