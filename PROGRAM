@@ -1744,6 +1744,7 @@ AssertionError: Age can't be negative !
  
 
 ##HOW TO SEARCH FOR LIST IN THE ARRAY 
+##for 3 case
 import math
 l=0
 count=0
@@ -1757,3 +1758,31 @@ for i in range(n):
           count+=1  
           if arr[i][l:l+3]==x[0:3]:
               print(math.floor((count-1)/3))
+              print("the col c1 is ",l)
+
+##for 4 case  
+count=0
+for i in range(n):
+    for l in range (2):
+        # temp[i][l:l+3] == x[0:3]):
+           # return l
+          count+=1  
+          if arr[i][l:l+4]==x[0:4]:
+              print("the row r1 for 4  value input in which it occur is",math.floor((count-1)/2))
+              print("the col c1 is ",l)
+
+count=0
+arr = [[0,2,1,3,4],[0,0,1,1,1],[0,2,3,1,3],[0,3,3,1,0],[1,1,0,2,2]]  
+x = [1,1,0,2,2]
+##for  5 case            
+for i in range(n):
+    for l in range (1):
+        # temp[i][l:l+3] == x[0:3]):
+           # return l
+          count+=1  
+          if arr[i][l:l+5]==x:
+              print("the row r1 for 4  value input in which it occur is",math.floor((count-1)))
+              print("the col c1 is ",l)
+
+
+
