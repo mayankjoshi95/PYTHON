@@ -1786,3 +1786,56 @@ for i in range(n):
 
 
 
+
+##for 5 case in column part searching 
+import numpy as np
+count=0
+arr1 = [[0,2,1,3,4],[0,0,1,1,1],[0,2,3,1,3],[0,3,3,1,0],[1,1,0,2,2]] 
+arr=np.transpose(arr1)
+x = [[2,0,2,3,1]]
+##for  5 case            
+for i in range(n):
+    for l in range (1):
+        # temp[i][l:l+3] == x[0:3]):
+           # return l
+          count+=1  
+          if (arr[i][l:l+5]==x).all():
+              print("the column c for 5 value input in which it occur is",math.floor((count-1)))
+ 
+ 
+ 
+ ##for 3 case in column search 
+ import math
+l=0
+count=0
+pos=[]
+arry = [[0,2,1,3,4],[0,0,1,1,1],[0,2,3,1,3],[0,3,3,1,0],[1,1,0,2,2]]  
+arr=np.transpose(arry)
+x=[0,0,0]
+n = len(arr)
+##for 3 case 
+for i in range(n):
+   for l in range (3):
+        # temp[i][l:l+3] == x[0:3]):
+           # return l
+          count+=1  
+          if (arr[i][l:l+3]==x[0:3]).all():
+             print("the column value  c1 for 3  value input in which it occur is",math.floor((count-1)/3))
+             
+##for 4 case in column search
+
+##for  4 case 
+arry = [[0,2,1,3,4],[0,0,1,1,1],[0,2,3,1,3],[0,3,3,1,0],[1,1,0,2,2]]  
+arr=np.transpose(arry)
+count=0
+x=[0,0,0,1]
+n = len(arr)
+for i in range(n):
+   for l in range (2):
+         #temp[i][l:l+3] == x[0:3]):
+          #  return l
+         count+=1  
+         if (arr[i][l:l+4]==x[0:4]).all():
+              print("the row r1 for 4  value input in which it occur is",math.floor((count-1)/2))
+              #print("the col c1 is ",l)
+            
